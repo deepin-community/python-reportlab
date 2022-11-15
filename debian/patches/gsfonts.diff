@@ -1,0 +1,85 @@
+--- a/src/reportlab/pdfbase/_fontdata.py
++++ b/src/reportlab/pdfbase/_fontdata.py
+@@ -54,46 +54,22 @@
+     }
+ 
+ #this maps fontnames to the equivalent filename root.
+-_font2fnrMapWin32 = {
+-                    'symbol':                   'sy______',
+-                    'zapfdingbats':             'zd______',
+-                    'helvetica':                '_a______',
+-                    'helvetica-bold':           '_ab_____',
+-                    'helvetica-boldoblique':    '_abi____',
+-                    'helvetica-oblique':        '_ai_____',
+-                    'times-bold':               '_eb_____',
+-                    'times-bolditalic':         '_ebi____',
+-                    'times-italic':             '_ei_____',
+-                    'times-roman':              '_er_____',
+-                    'courier-bold':             'cob_____',
+-                    'courier-boldoblique':      'cobo____',
+-                    'courier':                  'com_____',
+-                    'courier-oblique':          'coo_____',
+-                    }
+-if sys.platform in ('linux2',):
+-    _font2fnrMapLinux2 ={
+-                'symbol': 'Symbol',
+-                'zapfdingbats': 'ZapfDingbats',
+-                'helvetica': 'Arial',
+-                'helvetica-bold': 'Arial-Bold',
+-                'helvetica-boldoblique': 'Arial-BoldItalic',
+-                'helvetica-oblique': 'Arial-Italic',
+-                'times-bold': 'TimesNewRoman-Bold',
+-                'times-bolditalic':'TimesNewRoman-BoldItalic',
+-                'times-italic': 'TimesNewRoman-Italic',
+-                'times-roman': 'TimesNewRoman',
+-                'courier-bold': 'Courier-Bold',
+-                'courier-boldoblique': 'Courier-BoldOblique',
+-                'courier': 'Courier',
+-                'courier-oblique': 'Courier-Oblique',
+-                }
+-    _font2fnrMap = _font2fnrMapLinux2
+-    for k, v in _font2fnrMap.items():
+-        if k in _font2fnrMapWin32.keys():
+-            _font2fnrMapWin32[v.lower()] = _font2fnrMapWin32[k]
+-    del k, v
+-else:
+-    _font2fnrMap = _font2fnrMapWin32
++_font2fnrMap = {
++    'symbol':                   's050000l',
++    'zapfdingbats':             'd050000l',
++    'helvetica':                'n019003l',
++    'helvetica-bold':           'n019004l',
++    'helvetica-oblique':        'n019023l',
++    'helvetica-boldoblique':    'n019024l',
++    'times-roman':              'n021003l',
++    'times-bold':               'n021004l',
++    'times-italic':             'n021023l',
++    'times-bolditalic':         'n021024l',
++    'courier':                  'n022003l',
++    'courier-bold':             'n022004l',
++    'courier-oblique':          'n022023l',
++    'courier-boldoblique':      'n022024l',
++}
+ 
+ def _findFNR(fontName):
+     return _font2fnrMap[fontName.lower()]
+@@ -109,19 +85,6 @@
+ del T1SearchPath, rl_isfile
+ 
+ def findT1File(fontName,ext='.pfb'):
+-    if sys.platform in ('linux2',) and ext=='.pfb':
+-        try:
+-            f = _searchT1Dirs(_findFNR(fontName))
+-            if f: return f
+-        except:
+-            pass
+-
+-        try:
+-            f = _searchT1Dirs(_font2fnrMapWin32[fontName.lower()]+ext)
+-            if f: return f
+-        except:
+-            pass
+-
+     return _searchT1Dirs(_findFNR(fontName)+ext)
+ 
+ # this lists the predefined font encodings - WinAnsi and MacRoman.  We have
