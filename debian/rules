@@ -1,0 +1,148 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# all versions
+PY3VERS	:= $(shell py3versions -vs)
+VER3	:= $(shell py3versions -vd)
+
+include /usr/share/python3/python.mk
+
+setup_options = --no-download-t1-files
+
+build-arch: build
+build-indep: build
+build: build-stamp
+build-stamp: $(PY3VERS:%=build3-python%)
+	touch $@
+build3-python%:
+	python$* setup.py build $(setup_options)
+	touch $@
+
+# needs installed python-imaging, python-renderpm
+build-doc-stamp:
+	set -x; \
+	cd docs \
+	  && PYTHONPATH=$(wildcard $(CURDIR)/build/lib.*-*-$(VER3)) python3 genAll.py
+	PYTHONPATH=$(wildcard $(CURDIR)/build/lib.*-*-$(VER3)) $(MAKE) -C docs html PAPER=a4
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f *-stamp build3-python*
+	rm -rf compile build
+	find -name '*.py[co]' -exec rm -f {} \;
+	rm -rf *.log *.pdf # test runs ...
+	rm -rf docs/build docs/*.pdf
+	dh_clean
+
+install: build-stamp install-prereq $(PY3VERS:%=install3-python%)
+
+install-prereq: build-stamp
+	dh_testdir
+	dh_testroot
+	dh_prep
+
+install3-python%: install-prereq
+	python$* setup.py install \
+		$(setup_options) \
+		--root $(CURDIR)/debian/python3-reportlab \
+		--install-layout=deb
+	find debian/python3-reportlab -name '*.ttf' | xargs -r rm -f
+	find debian/python3-reportlab -name '*.py[co]' | xargs -r rm -f
+
+	find debian/python3-reportlab -name '__pycache__' | xargs -r rm -rf
+
+	mkdir -p debian/python3-renderpm/$(call py_libdir,$*)/reportlab/graphics
+	abitag=.$$(python$* -c "import sysconfig; print(sysconfig.get_config_var('SOABI'))"); \
+	mv debian/python3-reportlab/$(call py_libdir,$*)/reportlab/graphics/_renderPM$$abitag*.so \
+		debian/python3-renderpm/$(call py_libdir,$*)/reportlab/graphics/
+
+	mkdir -p debian/python3-reportlab-accel/$(call py_libdir,$*)/reportlab/lib
+	abitag=.$$(python$* -c "import sysconfig; print(sysconfig.get_config_var('SOABI'))"); \
+	mv debian/python3-reportlab/$(call py_libdir,$*)/reportlab/lib/*$$abitag*.so \
+		debian/python3-reportlab-accel/$(call py_libdir,$*)/reportlab/lib/
+
+	: # remove test, docs and demo files
+	rm -rf debian/python3-reportlab/usr/lib/python3/*-packages/reportlab/demos
+	rm -rf debian/python3-reportlab/usr/lib/python3/*-packages/reportlab/tools/pythonpoint/demos
+	rm -rf debian/python3-reportlab/usr/lib/python3/*-packages/reportlab/docs
+	rm -rf debian/python3-reportlab/usr/lib/python3/*-packages/reportlab/test
+	rm -rf debian/python3-reportlab/usr/lib/python3/*-packages/reportlab/fonts
+
+	rm -f debian/python3-reportlab/usr/lib/python3/*-packages/reportlab/README.txt
+	rm -f debian/python3-reportlab/usr/lib/python3/*-packages/reportlab/CHANGES.txt
+
+#	-find debian -name '*.so' | xargs rm -f
+
+	: # Replace all '#!' calls to python with python3
+	: # and make them executable
+	for i in `find debian/python3-reportlab -type f`; do \
+	  sed '1s,#!.*python[^ ]*\(.*\),#! /usr/bin/python3\1,' \
+		$$i > $$i.temp; \
+	  if cmp --quiet $$i $$i.temp; then \
+	    rm -f $$i.temp; \
+	  else \
+	    mv -f $$i.temp $$i; \
+	    chmod 755 $$i; \
+	    echo "fixed interpreter: $$i"; \
+	  fi; \
+	done
+
+# Build architecture-independent files here.
+# Pass -i to all debhelper commands in this target to reduce clutter.
+binary-indep: build build-doc-stamp install
+	dh_testdir
+	dh_testroot
+	dh_installdocs -i README.txt
+	dh_installdocs -ppython-reportlab-doc -X.buildinfo docs/*.pdf docs/build/html
+	dh_sphinxdoc -i
+	dh_installexamples -ppython-reportlab-doc demos/*
+	rm -rf debian/python-reportlab-doc/usr/share/doc/python-reportlab-doc/examples/tests
+	cp -p debian/testdemos.py debian/python-reportlab-doc/usr/share/doc/python-reportlab-doc/examples/.
+	cp -rp tools/pythonpoint/demos debian/python-reportlab-doc/usr/share/doc/python-reportlab-doc/pythonpoint-demos
+	: # Replace all '#!' calls to python with python3
+	: # and make them executable
+	for i in `find debian/python-reportlab-doc -mindepth 3 -type f`; do \
+	  sed '1s,#!.*python[^ ]*\(.*\),#! /usr/bin/python3\1,' \
+		$$i > $$i.temp; \
+	  if cmp --quiet $$i $$i.temp; then \
+	    rm -f $$i.temp; \
+	  else \
+	    mv -f $$i.temp $$i; \
+	    chmod 755 $$i; \
+	    echo "fixed interpreter: $$i"; \
+	  fi; \
+	done
+	dh_installchangelogs -i
+	dh_link -i
+	dh_compress -i -X.py -X.pdf -X.js -Xodyssey.txt -X.xml
+	dh_fixperms -i
+	dh_python3 -ppython3-reportlab
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installdocs -a
+	dh_installchangelogs -a
+
+	dh_compress -a -X.py -X.pdf -Xodyssey.txt -X.xml
+	dh_fixperms -a
+	dh_python3 -ppython3-renderpm -ppython3-reportlab-accel
+	dh_strip -ppython3-renderpm
+	dh_strip -ppython3-reportlab-accel
+	dh_installdeb -a
+	dh_shlibdeps -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure

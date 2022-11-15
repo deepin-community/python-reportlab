@@ -1,0 +1,29 @@
+Description: Enable reproducible building
+ - Remove timestamp from documentation
+ - When generating PDF files, honour SOURCE_DATE_EPOCH for timestamps in
+   metadata: https://reproducible-builds.org/specs/source-date-epoch/
+ - Interpret timestamps in generated PDF files as UTC.
+
+--- a/docs/userguide/ch1_intro.py
++++ b/docs/userguide/ch1_intro.py
+@@ -9,7 +9,6 @@ from reportlab.lib.utils import TimeStam
+ title("ReportLab PDF Library")
+ title("User Guide")
+ centred('ReportLab Version ' + reportlab.Version)
+-centred(TimeStamp().datetime.strftime('Document generated on %Y/%m/%d %H:%M:%S %Z'))
+ 
+ nextTemplate("TOC")
+ 
+--- a/src/reportlab/pdfbase/pdfdoc.py
++++ b/src/reportlab/pdfbase/pdfdoc.py
+@@ -1737,8 +1737,8 @@ class PDFDate(PDFObject):
+     def format(self, doc):
+         dfmt = self.dateFormatter or (
+                 lambda yyyy,mm,dd,hh,m,s:
+-                    "D:%04d%02d%02d%02d%02d%02d%+03d'%02d'"
+-                        % (yyyy,mm,dd,hh,m,s,self.dhh,self.dmm))
++                    "D:%04d%02d%02d%02d%02d%02d+00'00'"
++                        % (yyyy,mm,dd,hh,m,s))
+         return format(PDFString(dfmt(*self.date)), doc)
+ 
+ class Destination(PDFObject):

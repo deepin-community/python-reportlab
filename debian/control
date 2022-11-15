@@ -1,0 +1,64 @@
+Source: python-reportlab
+Section: python
+Priority: optional
+Maintainer: Matthias Klose <doko@debian.org>
+Standards-Version: 4.6.0
+Build-Depends: debhelper (>= 10), dh-python,
+  python3-all-dev,
+  python3-setuptools,
+#  libart-2.0-dev,
+  libfreetype6-dev, sharutils
+Build-Depends-Indep: python3-pil, python3-sphinx
+Homepage: https://www.reportlab.com/opensource/
+
+Package: python3-reportlab
+Architecture: all
+Depends: python3-reportlab-accel (>= ${source:Version}),
+  ${python3:Depends}, ${misc:Depends}
+Recommends: python3-renderpm, python3-pil
+Suggests: pdf-viewer, python3-egenix-mxtexttools (>= 2.0.6-3.1), python-reportlab-doc
+Description: ReportLab library to create PDF documents using Python3
+ ReportLab is a library that lets you directly create documents in
+ Adobe's Portable Document Format (PDF) using the Python programming language.
+ .
+ ReportLab library creates PDF based on graphics commands without
+ intervening steps. It's therefore extremely fast, and flexible (since
+ you're using a full-blown programming language).
+ .
+ Sample use cases are:
+   * Dynamic PDF generation on the web
+   * High-volume corporate reporting and database publishing
+   * As embeddable print engine for other applications, including a 
+     'report language' so that users can customize their own reports.
+   * As 'build system' for complex documents with charts, tables and text 
+     such as management accounts, statistical reports and scientific papers
+   * from XML to PDF in one step
+
+Package: python3-reportlab-accel
+Architecture: any
+Multi-Arch: same
+Depends: ${python3:Depends}, ${shlibs:Depends}, ${misc:Depends}
+Provides: ${python3:Provides}
+Description: C coded extension accelerator for the ReportLab Toolkit
+ A C coded extension accelerator for the ReportLab Toolkit.
+
+Package: python3-renderpm
+Architecture: any
+Multi-Arch: same
+Depends: ${python3:Depends}, ${shlibs:Depends}, ${misc:Depends}, fonts-urw-base35
+Provides: ${python3:Provides}
+Description: python low level render interface
+ This package contains the python low level render interface,
+ used in the ReportLab library.
+
+Package: python-reportlab-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${sphinxdoc:Depends}
+Suggests: python3-reportlab
+Description: Documentation for the ReportLab Python library (PDF format)
+ ReportLab is a library that lets you directly create documents in
+ Adobe's Portable Document Format (PDF) using the Python programming language.
+ .
+ This package contains the documentation for ReportLab in PDF format.
