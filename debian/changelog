@@ -1,3 +1,133 @@
+python-reportlab (4.0.6-1) unstable; urgency=medium
+
+  * added Replaces: python3-reportlab-accel, python3-renderpm
+  * New upstream version 4.0.6
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 15 Oct 2023 19:53:04 +0200
+
+python-reportlab (4.0.5-1) unstable; urgency=medium
+
+  * New upstream version 4.0.5
+  * removed the transitional packages python3-reportlab-accel and
+    python3-renderpm, now python3-reportlab provides them as virtual
+    packages
+  * fixed Vcs URLs
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 30 Sep 2023 14:11:14 +0200
+
+python-reportlab (4.0.4-11) unstable; urgency=medium
+
+  * removed the dependency on ttf-bitstream-vera, replaced by dependencies on
+    fonts-dejavu-core and fonts-dejavu-extra. Adapted
+    debian/python3-reportlab.links accordingly. Hopefully, this definitely
+    Closes: #1050218
+  * installed also Vera fonts which are included in the source package, as
+    their license is documented in debian/copyright
+  * checked that upstream sources are using rl_safe_exec instead of exec in
+    file src/reportlab/platypus/flowables.py. Closes: #961524
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 24 Aug 2023 10:19:11 +0200
+
+python-reportlab (4.0.4-10) unstable; urgency=medium
+
+  * replace default T1 fonts by DejaVuSans.ttf when those fonts cannot
+    be found. Closes: #1050218
+
+ -- Georges Khaznadar <georgesk@debian.org>  Wed, 23 Aug 2023 19:10:37 +0200
+
+python-reportlab (4.0.4-9) unstable; urgency=medium
+
+  * added a dependency on fonts-urw-base35, and created symlinks from
+    reportlab/fonts to the T1 fonts.
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 13 Jul 2023 14:17:41 +0200
+
+python-reportlab (4.0.4-8) unstable; urgency=medium
+
+  * replace default T1 fonts by Vera.TTF when those fonts cannot be found
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 13 Jul 2023 12:51:28 +0200
+
+python-reportlab (4.0.4-7) unstable; urgency=medium
+
+  * added dependencies python3-reportlab => python3-rlpycairo,
+    python3-freetype, ttf-bitstream-vera
+  * created symlinks from reportlab/fonts to
+    /usr/share/fonts/truetype/ttf-bitstream-vera/
+
+ -- Georges Khaznadar <georgesk@debian.org>  Wed, 12 Jul 2023 12:09:25 +0200
+
+python-reportlab (4.0.4-6) unstable; urgency=medium
+
+  * modified a copy routine to let it do nothing when building in -arch
+    mode.
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 01 Jul 2023 20:30:25 +0200
+
+python-reportlab (4.0.4-5) unstable; urgency=medium
+
+  * removed the clause Build-Depends-Indep and the -indep suffixes
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 01 Jul 2023 17:50:27 +0200
+
+python-reportlab (4.0.4-4) unstable; urgency=medium
+
+  * defined override_dh_auto_clean-indep also
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 01 Jul 2023 17:09:20 +0200
+
+python-reportlab (4.0.4-3) unstable; urgency=medium
+
+  * defined override_dh_auto_build-indep and override_dh_auto_install-indep
+    targets in debian/rules
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 01 Jul 2023 16:15:29 +0200
+
+python-reportlab (4.0.4-2) unstable; urgency=medium
+
+  * restored binary packages (as empty transitional packages) for
+    python3-reportlab-accel and python3-renderpm. Added the clause
+    Conflicts: python3-reportlab-accel (<= 4.0.4), python3-renderpm (<= 4.0.4)
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 29 Jun 2023 15:05:11 +0200
+
+python-reportlab (4.0.4-1) unstable; urgency=medium
+
+  * adopted the package. Closes: #1037483
+  * added VCS stuff to manage the package at salsa.d.o, unde rthe umbrella
+    of python-team
+  * updated the watch file
+  * New upstream version 4.0.4
+  * Updated debian patches
+  * removed install rules which dealt with .so libs since there are no longer
+    C/C++ sources.
+  * fewer binary packages are generated: python3-renderpm: and
+    python3-reportlab-accel which were low level are no longer built.
+  * changed the build dependency libfreetype6-dev => libfreetype-dev
+  * removed unused rules about binary-arch, binary-indep
+  * simplified debian/rules, using the new debhelper system
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 17 Jun 2023 22:00:19 +0200
+
+python-reportlab (3.6.13-1) unstable; urgency=medium
+
+  * QA upload.
+  * New upstream version.
+  * Drop the toColor patch, implemented upstream.
+  * Bump debhelper and standards versions.
+  * Orphan the package. See #1037483.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 13 Jun 2023 12:41:30 +0200
+
+python-reportlab (3.6.12-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Bump standards version.
+  * Fix PYTHONPATH in d/rules to fix FTBFS (Jochen Sprickerhof).
+    Closes: #1019989.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 31 Dec 2022 11:05:33 +0100
+
 python-reportlab (3.6.11-1) unstable; urgency=medium
 
   * New upstream version.

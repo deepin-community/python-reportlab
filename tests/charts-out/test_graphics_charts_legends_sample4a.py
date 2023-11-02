@@ -20,13 +20,13 @@ class ExplodedDrawing_Drawing(_DrawingEditorMixin,Drawing):
 		self.add(String(95,45.585,'black',textAnchor='start',fontName='Times-Roman',fontSize=10,fillColor=Color(0,0,0,1)))
 		self.add(String(205.22,85.585,'WHITE',textAnchor='end',fontName='Helvetica',fontSize=12,fillColor=Color(0,0,0,1)))
 		self.add(String(170,85.585,'white',textAnchor='start',fontName='Times-Roman',fontSize=10,fillColor=Color(0,0,0,1)))
-		self.add(Line(57.22,88,67.22,88,strokeColor=Color(1,0,0,1),strokeWidth=2,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
-		self.add(Line(57.22,68,67.22,68,strokeColor=Color(0,.501961,0,1),strokeWidth=2,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
-		self.add(Line(57.22,48,67.22,48,strokeColor=Color(0,0,1,1),strokeWidth=2,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
-		self.add(Line(132.22,88,142.22,88,strokeColor=Color(1,1,0,1),strokeWidth=2,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
-		self.add(Line(132.22,68,142.22,68,strokeColor=Color(1,.752941,.796078,1),strokeWidth=2,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
-		self.add(Line(132.22,48,142.22,48,strokeColor=Color(0,0,0,1),strokeWidth=2,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
-		self.add(Line(207.22,88,217.22,88,strokeColor=Color(1,1,1,1),strokeWidth=2,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
+		self.add(Line(57.22,88,67.22,88,strokeColor=Color(1,0,0,1),strokeWidth=1,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
+		self.add(Line(57.22,68,67.22,68,strokeColor=Color(0,.501961,0,1),strokeWidth=1,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
+		self.add(Line(57.22,48,67.22,48,strokeColor=Color(0,0,1,1),strokeWidth=1,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
+		self.add(Line(132.22,88,142.22,88,strokeColor=Color(1,1,0,1),strokeWidth=1,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
+		self.add(Line(132.22,68,142.22,68,strokeColor=Color(1,.752941,.796078,1),strokeWidth=1,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
+		self.add(Line(132.22,48,142.22,48,strokeColor=Color(0,0,0,1),strokeWidth=1,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
+		self.add(Line(207.22,88,217.22,88,strokeColor=Color(1,1,1,1),strokeWidth=1,strokeLineCap=0,strokeLineJoin=0,strokeMiterLimit=0,strokeDashArray=None,strokeOpacity=None))
 
 
 if __name__=="__main__": #NORUNTESTS

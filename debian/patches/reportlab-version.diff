@@ -1,5 +1,7 @@
---- a/docs/source/conf.py
-+++ b/docs/source/conf.py
+Index: python-reportlab/docs/source/conf.py
+===================================================================
+--- python-reportlab.orig/docs/source/conf.py
++++ python-reportlab/docs/source/conf.py
 @@ -45,9 +45,10 @@ copyright = '2010, Robinson, Becker, Wat
  # built documents.
  #
