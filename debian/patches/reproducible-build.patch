@@ -4,8 +4,10 @@ Description: Enable reproducible building
    metadata: https://reproducible-builds.org/specs/source-date-epoch/
  - Interpret timestamps in generated PDF files as UTC.
 
---- a/docs/userguide/ch1_intro.py
-+++ b/docs/userguide/ch1_intro.py
+Index: python-reportlab/docs/userguide/ch1_intro.py
+===================================================================
+--- python-reportlab.orig/docs/userguide/ch1_intro.py
++++ python-reportlab/docs/userguide/ch1_intro.py
 @@ -9,7 +9,6 @@ from reportlab.lib.utils import TimeStam
  title("ReportLab PDF Library")
  title("User Guide")
@@ -14,9 +16,11 @@ Description: Enable reproducible building
  
  nextTemplate("TOC")
  
---- a/src/reportlab/pdfbase/pdfdoc.py
-+++ b/src/reportlab/pdfbase/pdfdoc.py
-@@ -1737,8 +1737,8 @@ class PDFDate(PDFObject):
+Index: python-reportlab/src/reportlab/pdfbase/pdfdoc.py
+===================================================================
+--- python-reportlab.orig/src/reportlab/pdfbase/pdfdoc.py
++++ python-reportlab/src/reportlab/pdfbase/pdfdoc.py
+@@ -1738,8 +1738,8 @@ class PDFDate(PDFObject):
      def format(self, doc):
          dfmt = self.dateFormatter or (
                  lambda yyyy,mm,dd,hh,m,s:

@@ -1,0 +1,23 @@
+Index: python-reportlab/src/reportlab/graphics/utils.py
+===================================================================
+--- python-reportlab.orig/src/reportlab/graphics/utils.py
++++ python-reportlab/src/reportlab/graphics/utils.py
+@@ -84,6 +84,18 @@ def __makeTextPathsCode__(tp=None, _TP =
+                             path_or_stream = getattr(font.face,'pfbFileName',None)
+                             if not path_or_stream:
+                                 path_or_stream = font.face.findT1File()
++                            if not path_or_stream:
++                                # the T1 file was not yet found!
++                                # fall back to Vera TTF font
++                                import reportlab.rl_config
++                                reportlab.rl_config.warnOnMissingFontGlyphs = 0
++                                from reportlab.pdfbase import pdfmetrics
++                                from reportlab.pdfbase.ttfonts import TTFont
++                                pdfmetrics.registerFont(TTFont(
++                                    'DejaVuSans', 'DejaVuSans.ttf'))
++                                font = getFont("DejaVuSans")
++                                path_or_stream = font.face._ttf_data
++                                path_or_stream = io.BytesIO(path_or_stream)
+                         face = freetype.Face(path_or_stream)
+                         self.faces[fontName] = (face,font) 
+                     return self.faces[fontName]
