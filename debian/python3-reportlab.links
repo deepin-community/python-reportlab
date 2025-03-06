@@ -1,4 +1,5 @@
-# linking all the files provided by the dependency 
+# linking all the files provided by the dependency
+# TTF files
 /usr/share/fonts/truetype/dejavu/DejaVuMathTeXGyre.ttf usr/lib/python3/dist-packages/reportlab/fonts/DejaVuMathTeXGyre.ttf
 /usr/share/fonts/truetype/dejavu/DejaVuSans-BoldOblique.ttf usr/lib/python3/dist-packages/reportlab/fonts/DejaVuSans-BoldOblique.ttf
 /usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf usr/lib/python3/dist-packages/reportlab/fonts/DejaVuSans-Bold.ttf
@@ -23,6 +24,8 @@
 /usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf usr/lib/python3/dist-packages/reportlab/fonts/DejaVuSerif.ttf
 
 # other links to replace files provided in src/reportlab/fonts
+# PFB files
+
 /usr/share/fonts/X11/Type1/C059-BdIta.pfb usr/lib/python3/dist-packages/reportlab/fonts/C059-BdIta.pfb
 /usr/share/fonts/X11/Type1/C059-Bold.pfb usr/lib/python3/dist-packages/reportlab/fonts/C059-Bold.pfb
 /usr/share/fonts/X11/Type1/C059-Italic.pfb usr/lib/python3/dist-packages/reportlab/fonts/C059-Italic.pfb
@@ -58,3 +61,41 @@
 /usr/share/fonts/X11/Type1/URWGothic-Demi.pfb usr/lib/python3/dist-packages/reportlab/fonts/URWGothic-Demi.pfb
 /usr/share/fonts/X11/Type1/URWGothic-DemiOblique.pfb usr/lib/python3/dist-packages/reportlab/fonts/URWGothic-DemiOblique.pfb
 /usr/share/fonts/X11/Type1/Z003-MediumItalic.pfb usr/lib/python3/dist-packages/reportlab/fonts/Z003-MediumItalic.pfb
+
+# AFM files
+
+/usr/share/fonts/type1/urw-base35/C059-BdIta.afm usr/lib/python3/dist-packages/reportlab/fonts/C059-BdIta.afm
+/usr/share/fonts/type1/urw-base35/C059-Bold.afm usr/lib/python3/dist-packages/reportlab/fonts/C059-Bold.afm
+/usr/share/fonts/type1/urw-base35/C059-Italic.afm usr/lib/python3/dist-packages/reportlab/fonts/C059-Italic.afm
+/usr/share/fonts/type1/urw-base35/C059-Roman.afm usr/lib/python3/dist-packages/reportlab/fonts/C059-Roman.afm
+/usr/share/fonts/type1/urw-base35/D050000L.afm usr/lib/python3/dist-packages/reportlab/fonts/D050000L.afm
+/usr/share/fonts/type1/urw-base35/NimbusMonoPS-Bold.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusMonoPS-Bold.afm
+/usr/share/fonts/type1/urw-base35/NimbusMonoPS-BoldItalic.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusMonoPS-BoldItalic.afm
+/usr/share/fonts/type1/urw-base35/NimbusMonoPS-Italic.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusMonoPS-Italic.afm
+/usr/share/fonts/type1/urw-base35/NimbusMonoPS-Regular.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusMonoPS-Regular.afm
+/usr/share/fonts/type1/urw-base35/NimbusRoman-Bold.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusRoman-Bold.afm
+/usr/share/fonts/type1/urw-base35/NimbusRoman-BoldItalic.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusRoman-BoldItalic.afm
+/usr/share/fonts/type1/urw-base35/NimbusRoman-Italic.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusRoman-Italic.afm
+/usr/share/fonts/type1/urw-base35/NimbusRoman-Regular.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusRoman-Regular.afm
+/usr/share/fonts/type1/urw-base35/NimbusSans-Bold.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusSans-Bold.afm
+/usr/share/fonts/type1/urw-base35/NimbusSans-BoldItalic.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusSans-BoldItalic.afm
+/usr/share/fonts/type1/urw-base35/NimbusSans-Italic.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusSans-Italic.afm
+/usr/share/fonts/type1/urw-base35/NimbusSans-Regular.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusSans-Regular.afm
+/usr/share/fonts/type1/urw-base35/NimbusSansNarrow-Bold.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusSansNarrow-Bold.afm
+/usr/share/fonts/type1/urw-base35/NimbusSansNarrow-BoldOblique.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusSansNarrow-BoldOblique.afm
+/usr/share/fonts/type1/urw-base35/NimbusSansNarrow-Oblique.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusSansNarrow-Oblique.afm
+/usr/share/fonts/type1/urw-base35/NimbusSansNarrow-Regular.afm usr/lib/python3/dist-packages/reportlab/fonts/NimbusSansNarrow-Regular.afm
+/usr/share/fonts/type1/urw-base35/P052-Bold.afm usr/lib/python3/dist-packages/reportlab/fonts/P052-Bold.afm
+/usr/share/fonts/type1/urw-base35/P052-BoldItalic.afm usr/lib/python3/dist-packages/reportlab/fonts/P052-BoldItalic.afm
+/usr/share/fonts/type1/urw-base35/P052-Italic.afm usr/lib/python3/dist-packages/reportlab/fonts/P052-Italic.afm
+/usr/share/fonts/type1/urw-base35/P052-Roman.afm usr/lib/python3/dist-packages/reportlab/fonts/P052-Roman.afm
+/usr/share/fonts/type1/urw-base35/StandardSymbolsPS.afm usr/lib/python3/dist-packages/reportlab/fonts/StandardSymbolsPS.afm
+/usr/share/fonts/type1/urw-base35/URWBookman-Demi.afm usr/lib/python3/dist-packages/reportlab/fonts/URWBookman-Demi.afm
+/usr/share/fonts/type1/urw-base35/URWBookman-DemiItalic.afm usr/lib/python3/dist-packages/reportlab/fonts/URWBookman-DemiItalic.afm
+/usr/share/fonts/type1/urw-base35/URWBookman-Light.afm usr/lib/python3/dist-packages/reportlab/fonts/URWBookman-Light.afm
+/usr/share/fonts/type1/urw-base35/URWBookman-LightItalic.afm usr/lib/python3/dist-packages/reportlab/fonts/URWBookman-LightItalic.afm
+/usr/share/fonts/type1/urw-base35/URWGothic-Book.afm usr/lib/python3/dist-packages/reportlab/fonts/URWGothic-Book.afm
+/usr/share/fonts/type1/urw-base35/URWGothic-BookOblique.afm usr/lib/python3/dist-packages/reportlab/fonts/URWGothic-BookOblique.afm
+/usr/share/fonts/type1/urw-base35/URWGothic-Demi.afm usr/lib/python3/dist-packages/reportlab/fonts/URWGothic-Demi.afm
+/usr/share/fonts/type1/urw-base35/URWGothic-DemiOblique.afm usr/lib/python3/dist-packages/reportlab/fonts/URWGothic-DemiOblique.afm
+/usr/share/fonts/type1/urw-base35/Z003-MediumItalic.afm usr/lib/python3/dist-packages/reportlab/fonts/Z003-MediumItalic.afm

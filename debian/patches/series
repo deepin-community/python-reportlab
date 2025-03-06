@@ -1,4 +1,5 @@
 gsfonts.diff
 reproducible-build.patch
 reportlab-version.diff
-dejavu-font-default.diff
+C059-Roman-font-default.diff
+t1searchpath.patch

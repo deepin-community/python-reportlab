@@ -1,0 +1,12 @@
+#! /usr/bin/sh -e
+
+cp -a /usr/share/doc/python3-reportlab/tests .
+cd tests
+# run tests, excluding some of them, and redirecting the error message
+# "Warn: Can't find .pfb for face 'Times-Roman'" to stdout
+python3 runAll.py --post-install \
+	--exclude=test_pdfbase_fontembed --exclude=test_docs_build \
+	--exclude=test_platypus_paragraphs --exclude=test_lib_utils \
+	--exclude=test_graphics_images --exclude=test_platypus_tables \
+	--exclude=test_tools_pythonpoint \
+	2>&1

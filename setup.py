@@ -1,6 +1,6 @@
-#Copyright ReportLab Europe Ltd. 2000-2023
+#Copyright ReportLab Europe Ltd. 2000-2025
 #see LICENSE for license details
-__version__='4.0.4'
+__version__='4.2.5'
 import os, sys, glob, shutil, re, sysconfig, traceback, io, subprocess
 from urllib.parse import quote as urlquote
 platform = sys.platform
@@ -150,6 +150,7 @@ def listFiles(root,followlinks=True,strJoin=None):
 reportlab_files= [
         'fonts/00readme.txt',
         'fonts/bitstream-vera-license.txt',
+        'fonts/hb-test.ttf',
         'fonts/DarkGarden-changelog.txt',
         'fonts/DarkGarden-copying-gpl.txt',
         'fonts/DarkGarden-copying.txt',
@@ -292,7 +293,7 @@ def main():
     setup(
         name="reportlab",
         version=get_version(),
-        license="BSD license (see license.txt for details), Copyright (c) 2000-2022, ReportLab Inc.",
+        license="BSD license (see license.txt for details), Copyright (c) 2000-2025, ReportLab Inc.",
         description="The Reportlab Toolkit",
         long_description="""The ReportLab Toolkit. An Open Source Python library for generating PDFs and graphics.""",
 
@@ -325,10 +326,12 @@ def main():
             'Programming Language :: Python :: 3.9',
             'Programming Language :: Python :: 3.10',
             'Programming Language :: Python :: 3.11',
+            'Programming Language :: Python :: 3.12',
+            'Programming Language :: Python :: 3.13',
             ],
         
         # this probably only works for setuptools, but distutils seems to ignore it
-        install_requires=['pillow>=9.0.0'],
+        install_requires=['pillow>=9.0.0','chardet'],
         # moved to pyproject.toml
         python_requires='>=3.7,<4',
         extras_require={

@@ -1,0 +1,26 @@
+Index: python-reportlab/src/reportlab/rl_settings.py
+===================================================================
+--- python-reportlab.orig/src/reportlab/rl_settings.py
++++ python-reportlab/src/reportlab/rl_settings.py
+@@ -202,6 +202,8 @@ T1SearchPath =  (
+                 '~/.fonts',
+                 '%(XDG_DATA_HOME)s/fonts',
+                 '~/.local/share/fonts',
++                '/usr/lib/python3/dist-packages/reportlab/fonts',
++                '/usr/share/fonts/X11/Type1/',
+                  )
+ 
+ # places to look for TT Font information
+Index: python-reportlab/src/reportlab/pdfbase/pdfmetrics.py
+===================================================================
+--- python-reportlab.orig/src/reportlab/pdfbase/pdfmetrics.py
++++ python-reportlab/src/reportlab/pdfbase/pdfmetrics.py
+@@ -194,7 +194,7 @@ def bruteForceSearchForAFM(faceName):
+     """Looks in all AFM files on path for face with given name.
+ 
+     Returns AFM file name or None.  Ouch!"""
+-    from reportlab.rl_config import T1SearchPath
++    from reportlab.rl_settings import T1SearchPath
+ 
+     for dirname in T1SearchPath:
+         if not rl_isdir(dirname): continue
