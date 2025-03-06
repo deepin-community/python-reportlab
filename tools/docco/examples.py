@@ -416,14 +416,16 @@ class HandAnnotation(Flowable):
 """
 
 lyrics = '''\
-well she hit Net Solutions
-and she registered her own .com site now
-and filled it up with yahoo profile pics
-she snarfed in one night now
-and she made 50 million when Hugh Hefner
-bought up the rights now
-and she'll have fun fun fun
-til her Daddy takes the keyboard away'''
+To be, or not to be, that is the question:
+Whether 'tis nobler in the mind to suffer
+The slings and arrows of outrageous fortune,
+Or to take arms against a sea of troubles
+And by opposing end them. To die—to sleep,
+No more; and by a sleep to say we end
+The heart-ache and the thousand natural shocks
+That flesh is heir to: 'tis a consummation
+Devoutly to be wish'd. To die, to sleep;
+To sleep, perchance to dream—ay, there's the rub:'''
 
 lyrics = lyrics.split("\n")
 testtextsize = """
@@ -554,10 +556,6 @@ def cursormoves1(canvas):
     for line in lyrics:
         textobject.textLine(line)
     textobject.setFillGray(0.4)
-    textobject.textLines('''
-    With many apologies to the Beach Boys
-    and anyone else who finds this objectionable
-    ''')
     canvas.drawText(textobject)
 """
 
@@ -571,10 +569,6 @@ def cursormoves2(canvas):
         textobject.textOut(line)
         textobject.moveCursor(14,14) # POSITIVE Y moves down!!!
     textobject.setFillColorRGB(0.4,0,1)
-    textobject.textLines('''
-    With many apologies to the Beach Boys
-    and anyone else who finds this objectionable
-    ''')
     canvas.drawText(textobject)
 """
 
@@ -590,10 +584,6 @@ def charspace(canvas):
         textobject.textLine("%s: %s" %(charspace,line))
         charspace = charspace+0.5
     textobject.setFillGray(0.4)
-    textobject.textLines('''
-    With many apologies to the Beach Boys
-    and anyone else who finds this objectionable
-    ''')
     canvas.drawText(textobject)
 """
 
@@ -609,10 +599,6 @@ def wordspace(canvas):
         textobject.textLine("%s: %s" %(wordspace,line))
         wordspace = wordspace+2.5
     textobject.setFillColorCMYK(0.4,0,0.4,0.2)
-    textobject.textLines('''
-    With many apologies to the Beach Boys
-    and anyone else who finds this objectionable
-    ''')
     canvas.drawText(textobject)
 """
 testhorizontalscale = """
@@ -627,10 +613,6 @@ def horizontalscale(canvas):
         textobject.textLine("%s: %s" %(horizontalscale,line))
         horizontalscale = horizontalscale+10
     textobject.setFillColorCMYK(0.0,0.4,0.4,0.2)
-    textobject.textLines('''
-    With many apologies to the Beach Boys
-    and anyone else who finds this objectionable
-    ''')
     canvas.drawText(textobject)
 """
 testleading = """
@@ -645,10 +627,6 @@ def leading(canvas):
         textobject.textLine("%s: %s" %(leading,line))
         leading = leading+2.5
     textobject.setFillColorCMYK(0.8,0,0,0.3)
-    textobject.textLines('''
-    With many apologies to the Beach Boys
-    and anyone else who finds this objectionable
-    ''')
     canvas.drawText(textobject)
 """
 

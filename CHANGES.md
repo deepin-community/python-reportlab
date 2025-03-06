@@ -11,6 +11,95 @@ E.g. to retrieve the changes made between release 3.4 and release 3.5, type::
 The contributors lists are in no order and apologies to those accidentally not
 mentioned. If we missed you, please let us know!
 
+CHANGES  4.3.1   10/02/2025
+---------------------------
+    * release
+
+CHANGES  4.3.1a1 10/02/2025
+---------------------------
+    * shapes.py transform.py changes to allow origin change in transforms
+    * test fixes haveDejaVu --> lib/testutils.py
+
+CHANGES  4.3.0   03/02/2025
+---------------------------
+    * improve attr name test in \_addNamedNode
+    * allow for import pyfribidi2 to check for pyfribidi
+
+CHANGES  4.3.0a1  17/12/2024
+---------------------------
+    * preliminary changes to allow TTF fonts to be shaped.
+    * fix ordering of drawing 'py' renders, modernise shapes string formatting
+    * modernise paragraph code
+    * renderbase.py change if else ordering, keep better parent record
+    * improve rl_accel.py and its tests
+    * use ast.Constant in rl_safe_eval.py
+    * fix word splitting bug reported by Marius Gedminas affecting splitword and splitFragWord
+    * make rl_accel.py python sameFrag slightly faster
+
+CHANGES  4.2.5   01/10/2024
+---------------------------
+    * Fixed code interfering with python 3.7 compatibility
+
+CHANGES  4.2.4   26/09/2024
+---------------------------
+    * Fixed timestamp bug in document metadata (reported by Christoph Czechner @ Nittoku Europe GmbH)
+
+CHANGES  4.2.3   24/09/2024
+---------------------------
+    * add \_rl\_repr \_rl\_docdent functions
+    * fix test outputs to be 3.13 compatible 
+    * Use lru_cache in axes.py
+    * fix keyword arguments in renderPDF.py and usage in shapes.py
+    * fix missing import in reportlab/graphics/utils.py
+
+CHANGES  4.2.2   21/06/202
+---------------------------
+    * allow changing TableOfContents & Index notification token using keyword argument notifyKind
+
+CHANGES  4.2.1.1 31/05/202
+---------------------------
+    * add support for allowing some magic names in rl_safe_eval.py
+    * fix display layout of multi-line in acroform textfield; bug reported by Kip Nalley lt kip at sophicalliance dot com gt
+
+CHANGES  4.2.1 21/05/2024
+-------------------------
+    * rl_safe_eval.py nano-fix for python 3.13.0b1 changes
+    * flowable security fixes discovered by hn13, FionaQX, and lz from Fudan University reported by Lennart Regebro regebro at gmail dot com
+    * added support for XMP packet
+
+CHANGES  4.2.0 18/04/2024
+-------------------------
+    * change LIItem split to avoid 1/2 line when justified else 1 line widow
+    * add longer text QR code example
+    * allow renderPM + rlPyCairo to produce both RGB & RGBA images
+
+CHANGES  4.1.0 08/02/2024
+-------------------------
+    * No change.  Changes to commercial package, re-released with same version number
+
+CHANGES  4.0.9.1 23/01/2024
+---------------------------
+    * use ttf subsets[0][1:32] fillin
+    * implement drawBoundary as a proper canvas method (removing it from Frame)
+
+CHANGES  4.0.9   08/01/2024
+---------------------------
+    * fix TTFont hmtx bug and force index 0(.notdef) in subsets as better for PDFUA 
+
+CHANGES  4.0.8   11/12/2023
+---------------------------
+    * fix rparsexml bug contributed by Matt Folwell  mjf at pearson co uk 
+    * allow class ddf attributes for Labels
+    * add rl_settings.defCWRF defined col width reduction fraction
+    * fix table wrapping bug contributed by Manuel Koch manuel koch at shinefour de
+
+CHANGES  4.0.7   06/11/2023
+---------------------------
+    * allow testutils.makeSuiteForClasses to specify a prefix for test method names
+    * SpiderChart can have direct draw flowable labels
+    * fix and improve tests for python -mreportlab.lib.rl_accel
+    * fix barchart 3D stacked case & fix barchart valueAxis reverseDirection behaviour.
+
 CHANGES  4.0.6   10/10/2023
 ---------------------------
     * fix importlib usage in reportlab init, reported by Frank Epperlein and others
@@ -1237,6 +1326,7 @@ Here is what's different now:
 	Splitting of tables across pages did not work correctly when the table had
 	row/column spans
   * Fix runtime error affecting keepWithNext
+  * security fixes discovered by hn13, FionaQX, and lz from Fudan University and reported by Lennart Regebro regebro at gmail dot com
 
 
 Older releases

@@ -43,6 +43,11 @@ override_dh_auto_install:
 	rm -f debian/python3-reportlab/usr/lib/python3/*-packages/reportlab/README.txt
 	rm -f debian/python3-reportlab/usr/lib/python3/*-packages/reportlab/CHANGES.txt
 
+	: # copy tests, then remove useless contents
+	target_dir=debian/python3-reportlab/usr/share/doc/python3-reportlab; \
+	mkdir -p $${target_dir}; cp -a tests $${target_dir}; \
+	rm -f $${target_dir}/tests/*-out/*
+
 	: # Replace all '#!' calls to python with python3
 	: # and make them executable
 	for i in `find debian/python3-reportlab -type f`; do \

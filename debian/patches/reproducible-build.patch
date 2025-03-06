@@ -20,7 +20,7 @@ Index: python-reportlab/src/reportlab/pdfbase/pdfdoc.py
 ===================================================================
 --- python-reportlab.orig/src/reportlab/pdfbase/pdfdoc.py
 +++ python-reportlab/src/reportlab/pdfbase/pdfdoc.py
-@@ -1738,8 +1738,8 @@ class PDFDate(PDFObject):
+@@ -1767,8 +1767,8 @@ class PDFDate(PDFObject):
      def format(self, doc):
          dfmt = self.dateFormatter or (
                  lambda yyyy,mm,dd,hh,m,s:

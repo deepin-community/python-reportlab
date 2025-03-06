@@ -1,3 +1,96 @@
+python-reportlab (4.3.1-1) unstable; urgency=medium
+
+  * New upstream version 4.3.1
+
+ -- Georges Khaznadar <georgesk@debian.org>  Wed, 19 Feb 2025 19:01:40 +0100
+
+python-reportlab (4.3.0-1) unstable; urgency=medium
+
+  * New upstream version 4.3.0
+  * updated debian patches
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 11 Feb 2025 08:40:07 +0100
+
+python-reportlab (4.2.5-1) unstable; urgency=medium
+
+  * New upstream version 4.2.5
+
+ -- Georges Khaznadar <georgesk@debian.org>  Wed, 02 Oct 2024 12:41:33 +0200
+
+python-reportlab (4.2.2-1) unstable; urgency=medium
+
+  * exclude src/reportlab.egg-info/* from packaging
+  * New upstream version 4.2.2
+  * refreshed debian patches
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 27 Jun 2024 16:12:55 +0200
+
+python-reportlab (4.2.0-2) unstable; urgency=medium
+
+  * new source upload
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 10 May 2024 15:55:18 +0200
+
+python-reportlab (4.2.0-1) unstable; urgency=medium
+
+  * New upstream version 4.2.0
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 21 Apr 2024 16:29:38 +0200
+
+python-reportlab (4.1.0-4) unstable; urgency=medium
+
+  * added autopkgtests
+  * cleaned the patch t1searchpath.patch
+  * install callig15 fonts
+  * rewritten d/copyright to comply with copyright-format/1.0/
+  * removed copyright mentions about LibHnj since the relevant files are no
+    longer part of ReportLab (they were C code, compiled to the older library
+    pyHnj.x86_64-linux-gnu.so)
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 19 Mar 2024 19:09:52 +0100
+
+python-reportlab (4.1.0-3) unstable; urgency=medium
+
+  * install DarkGardenMK fonts
+  * add symlinks for .afm files, regarding urw-base35 fonts
+  * fixed the brute-force search path for T1 fonts
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 19 Mar 2024 18:22:03 +0100
+
+python-reportlab (4.1.0-2) unstable; urgency=medium
+
+  * reduced the number of plain dependencies on fonts packages.
+    Closes: #1051487
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 12 Mar 2024 16:29:00 +0100
+
+python-reportlab (4.1.0-1) unstable; urgency=medium
+
+  * ignore some generated files
+  * New upstream version 4.1.0
+
+ -- Georges Khaznadar <georgesk@debian.org>  Mon, 12 Feb 2024 15:18:26 +0100
+
+python-reportlab (4.0.9-1) unstable; urgency=medium
+
+  * New upstream version 4.0.9
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 14 Jan 2024 20:10:36 +0100
+
+python-reportlab (4.0.8-1) unstable; urgency=medium
+
+  * New upstream version 4.0.8
+  * Added Suggests: for rl-accel and rl-renderpm, which provide the
+    accelerators in separate packages. Closes: #1037483
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 16 Dec 2023 15:19:29 +0100
+
+python-reportlab (4.0.7-1) unstable; urgency=medium
+
+  * New upstream version 4.0.7
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 12 Nov 2023 16:03:29 +0100
+
 python-reportlab (4.0.6-1) unstable; urgency=medium
 
   * added Replaces: python3-reportlab-accel, python3-renderpm
@@ -627,7 +720,7 @@ python-reportlab (1.20debian-3) unstable; urgency=low
 
 python-reportlab (1.20debian-2) unstable; urgency=low
 
-  * New maintainer 
+  * New maintainer
   * Fixed README.Debian
   * added debian/compat
   * debian/control: bumped Standards-Version to 3.6.2

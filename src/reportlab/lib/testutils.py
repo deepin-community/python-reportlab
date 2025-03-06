@@ -24,6 +24,16 @@ def haveRenderPM():
     except RenderPMError:
         return False
 
+DEJAVUSANS = ('DejaVuSans','DejaVuSans-Bold','DejaVuSans-Oblique','DejaVuSans-BoldOblique')
+def haveDejaVu():
+    from reportlab.pdfbase.ttfonts import TTFont
+    for x in DEJAVUSANS:
+        try:
+            TTFont(x,x+'.ttf')
+        except:
+            return False
+    return True
+
 # Helper functions.
 def isWritable(D):
     try:
@@ -115,11 +125,13 @@ def printLocation(depth=1):
         if outDir!=_OUTDIR:
             print('Logs and output files written to folder "%s"' % outDir)
 
-def makeSuiteForClasses(*classes):
+def makeSuiteForClasses(*classes,testMethodPrefix=None):
     "Return a test suite with tests loaded from provided classes."
 
     suite = unittest.TestSuite()
     loader = unittest.TestLoader()
+    if testMethodPrefix:
+        loader.testMethodPrefix = testMethodPrefix
     for C in classes:
         suite.addTest(loader.loadTestsFromTestCase(C))
     return suite
